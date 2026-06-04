@@ -36,3 +36,9 @@ CI
         
 GitHub Actions 에서 쓸 스크립트 파일을 생성하기
 방법 1. 로컬에서 생성해서 push를 통해 사용
+
+push 시 에러 발생 -> ci-cd.yml 때문에 발생함 -> workflow 권한이 없어서
+
+프로필 -> 설정
+
+윈도우 자격 증명 -> github이 들어간 모든걸 삭제
