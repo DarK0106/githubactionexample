@@ -1,0 +1,38 @@
+프로젝트 생성
+- Name: "team"
+- Language: Java
+- Type: Gradle - Groovy
+- Group: "com.test"
+- Artifact: "team"
+- Package name: "com.test.java"
+- Java: 21
+- Packaging: jar
+- Dependencies:
+    - Spring Web
+    - Lombok
+    - Oracle Driver
+    - Thymeleaf
+    - Spring Boot DevTools
+    - Spring Data JPA
+
+DB 설정 > 주석
+- build.gracle > refresh
+
+
+
+파일
+- "com.test.java.controller" > "MainController.java"
+- templates > "index.html"
+
+CI/CD
+- GitHub Actions
+- Jenkins
+
+CI
+- 구현을 끝낸 상황 -> 저장소(GitHub)에 push 함 
+-> GitHub Actions(아주 다양한 명령어들이 있음) 실행 
+    -> push 한 소스로 빌드를 할 것임(*.jar)
+        -> 도커 이미지 까지 만들라고 GitHub Actions 명령어를 작성할 수 있음
+        
+GitHub Actions 에서 쓸 스크립트 파일을 생성하기
+방법 1. 로컬에서 생성해서 push를 통해 사용
