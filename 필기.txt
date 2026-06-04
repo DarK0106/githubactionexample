@@ -28,11 +28,12 @@ CI/CD
 - GitHub Actions
 - Jenkins
 
-CI
+** CI **
 - 구현을 끝낸 상황 -> 저장소(GitHub)에 push 함 
 -> GitHub Actions(아주 다양한 명령어들이 있음) 실행 
     -> push 한 소스로 빌드를 할 것임(*.jar)
         -> 도커 이미지 까지 만들라고 GitHub Actions 명령어를 작성할 수 있음
+            -> Docker Hub push
         
 GitHub Actions 에서 쓸 스크립트 파일을 생성하기
 방법 1. 로컬에서 생성해서 push를 통해 사용
@@ -42,3 +43,32 @@ push 시 에러 발생 -> ci-cd.yml 때문에 발생함 -> workflow 권한이 �
 프로필 -> 설정
 
 윈도우 자격 증명 -> github이 들어간 모든걸 삭제
+
+도커 허브 이미지 푸시 검증
+docker run -d --name team -p 8080:8080 hyz0106/team
+
+** CD **
+이미지를 가지고 운영 서버에 실제로 배포하는 행위
+
+
+
+
+한 줄 요약
+
+코드를 push하면 → 빌드 → 테스트 → 배포까지 자동으로 해주는 컨베이어 벨트
+
+CI/CD = CI(지속적 통합) + CD(지속적 배포) 의 줄임말이에요.
+
+CI (Continuous Integration, 지속적 통합)
+
+코드를 합칠 때마다 자동으로 빌드하고 테스트해서, 깨졌는지 바로 알려주는 거예요.
+
+- 오늘 한 거: gradlew build로 jar 만들고, 잘 도는지 확인 → 이걸 손으로 했죠
+- CI: push만 하면 이걸 GitHub가 알아서 해줌. 빌드 실패하면 빨간불로 알려줌.
+
+CD (Continuous Deployment/Delivery, 지속적 배포)
+
+빌드·테스트 통과한 걸 자동으로 서버에 올려서 실행까지 하는 거예요.
+
+- 오늘 한 거: docker build → docker run으로 컨테이너 띄움 → 이것도 손으로
+- CD: 그걸 자동으로. push하면 알아서 이미지 만들고 서버(AWS 등)에 배포.
