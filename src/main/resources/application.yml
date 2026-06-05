@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: team
+      
+  # 실행 시
+  # - application.yml > 항상 실행
+  # - application-xxx.yml > 인자값 표현
+  profiles:
+    active: dev
+    
+  # JPA 설정
+  jpa:
+    database: oracle
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      hibernate:
+        format-sql: true
+        highlight-sql: true
+        
+logging:
+  level:
+    org:
+      hibernate:
+        sql: debug
+        orm:
+          jdbc:
+            bind: trace

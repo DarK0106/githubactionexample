@@ -50,7 +50,10 @@ docker run -d --name team -p 8080:8080 hyz0106/team
 ** CD **
 이미지를 가지고 운영 서버에 실제로 배포하는 행위
 
+ == 파일 ==
 
+com.test.java.controller -> MainController.java
+templates -> list.html
 
 
 한 줄 요약
